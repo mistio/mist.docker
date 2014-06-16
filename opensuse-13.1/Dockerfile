@@ -17,6 +17,8 @@ RUN mkdir /root/.ssh
 
 RUN touch /root/.ssh/authorized_keys && chmod 600 /root/.ssh/authorized_keys
 
+RUN zypper install -y wget
+
 ADD ./init.sh /
 
 EXPOSE 22
