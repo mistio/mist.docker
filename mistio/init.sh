@@ -1,10 +1,17 @@
 #!/bin/sh
 
+#!/bin/bash
+
+chown mist /
+chown -R mist /home/mist/mist.io
+
 if [ -z $BRANCH ]; then
     BRANCH=master
 fi
 
-cd /mist.io
+exec sudo -u mist /bin/bash - << eof
+
+cd /home/mist/mist.io
 git checkout $BRANCH
 git pull
 
@@ -13,4 +20,7 @@ git pull
 cd -
 
 ./bin/buildout -vN
-./bin/paster serve development.ini
+./bin/supervisord
+
+tail -f var/log/uwsgi-std*
+eof
