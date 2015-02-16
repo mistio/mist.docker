@@ -17,7 +17,6 @@ cd src/libcloud
 git pull
 cd -
 
-./bin/buildout -vN
 ./bin/supervisord
 
 tail -f var/log/uwsgi-std*
