@@ -3,7 +3,7 @@ MAINTAINER mist.io <support@mist.io>
 
 RUN apt-get update
 
-RUN apt-get install -y openssh-server
+RUN apt-get install -y openssh-server python python-apt
 
 RUN mkdir /var/run/sshd
 
