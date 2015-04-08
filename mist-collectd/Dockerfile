@@ -21,5 +21,8 @@ ADD 90-mist-users /etc/sudoers.d/90-mist-users
 
 ADD collectd-docker.sh /usr/share/collectd/collectd-docker.sh
 
-RUN chmod +x /usr/share/collectd/collectd-docker.sh 
+RUN chmod +x /usr/share/collectd/collectd-docker.sh
 
+ADD entrypoint.sh /
+
+RUN chmod + x /entrypoint.sh
