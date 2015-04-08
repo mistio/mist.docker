@@ -25,4 +25,6 @@ RUN chmod +x /usr/share/collectd/collectd-docker.sh
 
 ADD entrypoint.sh /
 
-RUN chmod + x /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
