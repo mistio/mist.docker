@@ -27,4 +27,6 @@ ADD entrypoint.sh /
 
 RUN chmod +x /entrypoint.sh
 
+RUN touch /var/log/collectd.log 
+
 ENTRYPOINT ["/entrypoint.sh"]
