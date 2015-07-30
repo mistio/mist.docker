@@ -15,7 +15,7 @@ USER mist
 RUN cd /home/mist && git clone https://github.com/mistio/mist.io
 WORKDIR /home/mist/mist.io
 RUN virtualenv --no-site-packages .
-RUN ./bin/pip install --upgrade setuptools
+RUN ./bin/pip install
 RUN ./bin/python bootstrap.py
 RUN ./bin/buildout -v
 RUN echo JS_BUILD = True >> settings.py
@@ -25,5 +25,11 @@ RUN ./bin/pip install ansible
 
 USER root
 ADD ./init.sh /
+RUN apt-get update && apt-get install -y libvirt-bin libvirt-dev pkg-config
+
+USER mist
+RUN cd /home/mist/mist.io && ./bin/pip install libvirt-python
+
+USER root
 EXPOSE 8000
 ENTRYPOINT /init.sh
