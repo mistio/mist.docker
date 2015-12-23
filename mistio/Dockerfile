@@ -28,7 +28,7 @@ ADD ./init.sh /
 RUN apt-get update && apt-get install -y libvirt-bin libvirt-dev pkg-config
 
 USER mist
-RUN cd /home/mist/mist.io && ./bin/pip install libvirt-python
+RUN cd /home/mist/mist.io && ./bin/pip install libvirt-python pyvmomi
 
 USER root
 EXPOSE 8000
