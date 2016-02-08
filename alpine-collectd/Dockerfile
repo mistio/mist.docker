@@ -15,4 +15,6 @@ ADD init.sh /init.sh
 
 RUN rm -rf /var/cache/apk/*
 
+EXPOSE 22
+
 CMD ["sh", "/init.sh"]
