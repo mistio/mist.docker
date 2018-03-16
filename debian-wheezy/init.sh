@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo $PUBLIC_KEY >> /root/.ssh/authorized_keys
+grep -qF -- "$PUBLIC_KEY" /root/.ssh/authorized_keys || echo "$PUBLIC_KEY" >> /root/.ssh/authorized_keys
 if [ -x /opt/mistio-collectd/collectd.sh ]; then
     /opt/mistio-collectd/collectd.sh start
 fi
