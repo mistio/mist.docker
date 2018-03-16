@@ -1,4 +1,4 @@
 mist.docker
 ===========
 
-Dockerfile for all mist docker images
+DEPRECATED - Use docker-compose files instead: https://github.com/mistio/mist.io/releases
